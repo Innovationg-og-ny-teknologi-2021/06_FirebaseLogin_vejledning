@@ -1,7 +1,7 @@
 # 5_firebase-advanced_vejledning
 
 ## Slut produkt
-![video_1] ./FireBaseAdvanced.mp4
+![video_1] (FireBaseAdvanced.mp4)
 
 ## Integration med Firebase
 1. Start med at oprette et nyt projekt.
