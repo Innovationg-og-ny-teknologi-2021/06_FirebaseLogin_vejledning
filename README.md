@@ -1,7 +1,7 @@
 # 5_firebase-advanced_vejledning
 
 ## Slut produkt
-![video_1] https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-8dc7-0fe58191fb75.mp4
+https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-8dc7-0fe58191fb75.mp4
 
 ## Integration med Firebase
 1. Start med at oprette et nyt projekt.
