@@ -1,4 +1,4 @@
-# 5_firebase-advanced_vejledning
+# 5_firebase-database_vejledning
 
 ## Slut produkt
 https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-8dc7-0fe58191fb75.mp4
