@@ -37,7 +37,7 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 3. Lav derefter en funktion kaldet StackNavigation som returnere 3 Screens med "name" samt komponentnavnene CarList, CarDetails og Add_edit_car --> reference Stack navigator ( nede i bunden )
    1. Det er vigtigt at CarList ligger øverst ;)
 4. Initialiser derefter Bottom navigatoren med `const Tab = createBottomNavigator();` ved siden af Stack const'en
-5. Gå nu ned til return og ligesom i sidste øvelse opret en ``<NavigationContainer></NavigationContainer>``, som skal wrappe din Tab.navigator --> Se reference bottom navigator
+5. Gå nu ned til return og ligesom i sidste øvelse opret en ``<NavigationContainer></NavigationContainer>``, som skal wrappe din Tab.navigator --> Se https://reactnavigation.org/docs/bottom-tab-navigator/ 
 6. I Tab.Navigator wrapper opret nu Tab.Screen med et name kaldt home, som tager StackNavigation med som komponent, og lav nu derefter en Tab.Screen med komponenten Add_edit_Car
 7. Fjern nu HeaderShown og tilføj et ikon til Home Tab.Screen
 ``<Tab.Screen name={'Home'} component={StackNavigation} options={{tabBarIcon: () => ( <Ionicons name="home" size={20} />),headerShown:null}}/>``
