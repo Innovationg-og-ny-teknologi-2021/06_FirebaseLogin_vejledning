@@ -27,35 +27,35 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
    3. ![img1](Screenshot 2021-08-05 at 21.30.26.png)
     
 ## App.JS - Opret React navigation
-1. Først initaliser Firebase med 
+1. Efter din const af firebase Configarationen initaliser Firebase med 
    1. ``` 
       if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
       }
     ```
-2. Initialiser først Stack navigatoren med `const Stack = createStackNavigator();`
+2. Initialiser derefter Stack navigatoren med `const Stack = createStackNavigator();`
 3. Lav derefter en funktion kaldet StackNavigation som returnere 3 Screens med "name" samt komponentnavnene CarList, CarDetails og Add_edit_car --> reference Stack navigator ( nede i bunden )
    1. Det er vigtigt at CarList ligger øverst ;)
-4. Initialiser derefter Bottom navigatoren med `const Tab = createBottomNavigator();` ved siden af Stack const'en
-5. Gå nu ned til return og ligesom i sidste øvelse opret en ``<NavigationContainer></NavigationContainer>``, som skal wrappe din Tab.navigator --> Se https://reactnavigation.org/docs/bottom-tab-navigator/ 
+4. Oppe ved `const Stack = createStackNavigator()`, Initialiser deraf en Bottom navigatorer med `const Tab = createBottomNavigator();`
+5. Gå nu ned til return og ligesom i de sidste navigation øvelser opret en ``<NavigationContainer></NavigationContainer>``, som skal wrappe din Tab.navigator --> Se https://reactnavigation.org/docs/bottom-tab-navigator/ 
 6. I Tab.Navigator wrapper opret nu Tab.Screen med et name kaldt home, som tager StackNavigation med som komponent, og lav nu derefter en Tab.Screen med komponenten Add_edit_Car
-7. Fjern nu HeaderShown og tilføj et ikon til Home Tab.Screen
+7. Fjern nu HeaderShown og tilføj et ikon til Home Tab.Screen | Eksempel ( husk at Ionicons skal importeres)
 ``<Tab.Screen name={'Home'} component={StackNavigation} options={{tabBarIcon: () => ( <Ionicons name="home" size={20} />),headerShown:null}}/>``
-8. Tilføj nu også et ikon til Add Screenen hvor ikon navnet ``add`` istedet for home
+8. Tilføj nu også et ikon til "Add" Screenen hvor ikon navnet ``add`` istedet for home
 9. Nu burde du kunne tabe imellem add og stacknavigatoren "Carlist"
 10. Tips: Hvis du får fejl, så læs hvad react native brokker sig over, og kopier det ind i Google og brug stackOverFlow
 
-## Add_edit_car komponent
-1. I parameter parantesen indsæt nu {navigation,route}, så vi kan henter fra parametre som skal sendes videre fra forskellige Screens
-2. Lav en initialState object med tilhørende string attributter: brand,model,year og licensplate
+## Add_edit_car komponent 
+1. I parameter parantesen indsæt nu `{navigation,route}`, så vi kan henter fra react navigations parametre som skal sendes videre fra forskellige Screens
+2. Lav øverst en initialState object med tilhørende string attributter: brand,model,year og licensplate
    1. ``const initialState = {
       brand: '',
       model: '',
       year: '',
-      licensePlate: '',
+      licensePlate: ''
       }``
-3. Lav en ny State kaldt [newCar,setNewCar]
-4. Lav en const kaldt isEditCar, hvor du sætter et = med route.name === "Edit car" eller hvad du nu har kaldt dette screen name i stacknavigatoren i app.js
+3. **States** |Lav en ny State kaldt `[newCar,setNewCar]`, hvor du i useState bruger `initialState`
+4. Lav derunder en const funktion kaldt isEditCar, hvor du sætter et ligmed mellem isEdit car og --> `route.name === "Edit car"` eller hvad du nu har kaldt dette screen name i stacknavigatoren i app.js
    1. ( bruges til senere )
 5. Opret nu en changeTextInput funktion
    ``` 
@@ -63,33 +63,33 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
         setNewCar({...newCar, [name]: event});
    }
    ```
-6. Gå nu til return og lav først en SafeAreaView som hovedwrapperen, og deri lig en ScrollView
+6. **Content |** Gå nu til return og lav først en SafeAreaView som forældre, og deri lig en ScrollView
    1. Nu laver vi et über powermove med JS, hvor vi i vores return funktion skal returnere en række felter som vi skal kunne indtaste og ændre værdier i
       1. Start med i ScrollView'et at åbne eksikveringen af JS med {}, og deri lav et Object keys funktion af newCar, som har en funktion med parametrene for attributterne model osv og index. 
-      2. Opret et return og Opret først et `View` med styling, deri et `Text` komponent som deri tager attributterne navnet 
-      3. Derefter opret et `TextInput` som i value'en har en newCar[parameternavnet] og lav en attribute med on funktion som taget event og et kald changeSelect funktion som taget newCar parameter navn og event med som parameter
-      4. Se i hints og fjern kommentarer 
+      2.  Se eventuelt nede i hints  `powermove JS funktion 2`
+      3. Opret et return og Opret først et `View` med styling, deri et `Text` komponent som deri tager attributterne navnet 
+      4. Derefter opret et `TextInput` som i value'en har en newCar[parameternavnet] og lav en attribute med on funktion som taget event og et kald changeSelect funktion som taget newCar parameter navn og event med som parameter
    2. lav nu en button som har en save changes funktion kaldt handlesave(), og giv en titel Add car
-7. Lav en handleSave funktion, som henter newCar objektets keys brand, model, year ( `const {brand,model .... etc } = newCar;`)
-   1. Opret et if, som kigger på om brand og de andre attributter har en længde på 0 for at tjekke for tomme felter ( brand.length === 0), og return en Alert.alert() med en besked
-   2. Kopier opret koden fra hints 3
-8. Nå du trykke på button i din app burde du nu få en alert med at du har saved. Og derefter gå nu ind i console.firebase.com om din bil er blevet oprettet
+7. **HandleSave** | Lav en handleSave funktion, som først henter newCar objektets keys brand, model, year `const {brand,model .... etc } = newCar;`
+   1. Opret et if, som kigger på om brand og de andre attributter har en længde på 0 for at tjekke for tomme felter fx `brand.length === 0` , og return en `Alert.alert()` med en besked
+   2. Kopier koden fra hints 3 og placer den nedenunder. Prøv at forstå hvad der sker i funktionen 
+8. Nå du trykke på button i din app burde du nu få en alert med at du har saved. Og derefter gå nu ind i på firebase (console.firebase.com) om din bil er blevet oprettet
 
 
 ### CarList
-1. Start med at sætte I parameter parantesen indsæt nu {navigation} i props ved Carlist
-2. Opret en state for cars med useState
-3. Lav nu en useEffect funktion hvori der laves en !cars, så kør hint 4
+1. Start med at sætte I parameter parantesen indsæt nu `{navigation}` i props ved Carlist
+2. Opret en state for `cars, setCars` med useState
+3. Lav nu en useEffect funktion (se referncer hvis du har no clue, hvordan det fungere) hvori der laves en !cars, så kør hint 4
    1. Husk at useEffect kun skal køres en gang med et tomt array til sidst
 4. Efter useEffect lav nu et if statement som kontrollere om der ikke er nogle biler og returner `<Text>Loadding...</Text> `
-5. lav nu en funktion kaldt `const handleSelectCar = id => {}`, som Her søger vi direkte i vores array af biler og finder bil objektet som matcher idet vi har tilsendt og ligger det ned i vores parametre i navigation ( hint 5)
-6. I Return funktionen vil vi lave en flatlist, og her skal vi have to const variabler carArray med værdier (Object.values()), og carKeys med Obejct.keys()
-7. I return funktionen lav en `<FlatList/>`, og lav følgende tre attributter
-   1. data med carArray
-   2. keyExtractor med en funktion med parametrene item, index som sættes med carKeys[index]
-   3. renderItem med følgende return funktion: ``({item,index}) => { return() } ``, som har touchableOpacity med en onpress funktion: handleSelectCar(carKeys[index])
-      1. lav en Text element med item.brand
-8. Nu skulle du gerne kunne trykke på bil modellen du har oprettet i tidligere step og går til car details
+5. Lav nu en funktion kaldt `const handleSelectCar = id => {}`, som søger direkte i vores array af biler og finder bil objektet som matcher idet vi har tilsendt og ligger det ned i vores parametre i navigation ( hint 5)
+6. Over return funktionen her skal vi have to const variabler carArray med værdier (Object.values()), og carKeys med Obejct.keys()` const carArray = Object.values(cars); const carKeys = Object.keys(cars);`
+7. I Return funktionen vil vi lave en `<FlatList/>`, i FlatListen komponenten lav følgende tre attributter
+   1. data som tager et med carArray
+   2. keyExtractor med en funktion med parametrene item, index som sættes med carKeys[index] (``keyExtractor={(item, index) => carKeys[index]}``)
+   3. renderItem med følgende return funktion: ``({item,index}) => { return() } ``. I return funktion skal vi have et forældre `TouchableOpacity` med en onpress funktion: `handleSelectCar(carKeys[index])`
+      1. lav en Text element med `{item.brand}`
+9. Nu skulle du gerne kunne trykke på bil modellen du har oprettet i tidligere step og går til car details
 
 ### CarDetails
 1. Start med at sætte I parameter parantesen indsæt nu {navigation,route} i props ved CarDetails
@@ -104,7 +104,7 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 10. Nu burde du se alle din bils informationer og kunne slette din bil. Og du burde kunne gå til edit/add screene
 
 
-### Add_edit_Car 2
+### Add_edit_Car | step 2
 1.Nu vil vi gerne have at når vi kommer fra CarDetails, så tager den vores bil med og indsætterne værdierne i felterne
 2. Opret nu en useEffect med en funktion
    1. Her i denne funktion skal der først oprettes et if statement, med isEditCar
@@ -116,9 +116,6 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
    2. dernæst i else'en lig add funktionen 
 4. Gå nu ned i titlen på button nederst og sæt et isEditCar ? "Save changes" : "Add car" i titlen
 5. done
-
-
-
 
 
 ## Hints 
@@ -152,15 +149,18 @@ Object.keys(state).map((/*Parameter navn*/,index) =>{
 ### hint 3
 ```
  try {
-    firebase
-        .database()
-        .ref('/Cars/')
-        .push({ brand, model, year, licensePlate });
-    Alert.alert(`Saved`);
-    setNewCar(initialState)
-} catch (error) {
-    console.log(`Error: ${error.message}`);
-}
+       firebase
+           .database()
+           .ref(`/Cars/${id}`)
+           // Vi bruger update, så kun de felter vi angiver, bliver ændret
+           .update({ brand, model, year, licensePlate });
+       // Når bilen er ændret, går vi tilbage.
+       Alert.alert("Din info er nu opdateret");
+       const car = [id,newCar]
+       navigation.navigate("Car Details",{car});
+   } catch (error) {
+       console.log(`Error: ${error.message}`);
+   }
 ```
 
 ### hint 4
@@ -206,4 +206,4 @@ Object.entries(car).map((item,index)=>{
 ## referencer
 https://reactnavigation.org/docs/stack-navigator/
 https://reactnavigation.org/docs/bottom-tab-navigator/
-https://reactjs.org/docs/hooks-effect.html 
+UseEffect:https://reactjs.org/docs/hooks-effect.html 
