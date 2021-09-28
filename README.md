@@ -24,7 +24,7 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 1. Opret nu følgende 4 komponenter med "Hint 1 skabelonen" med nedenstående struktur. 
    1. Husk at importere de nødvendige komponenter fra node modules, som React og Text fra rect native
    2. Husk også at komponentnavn skal være ens med filnavnet
-   3. ![img1](Screenshot 2021-08-05 at 21.30.26.png)
+   3. ![img3](https://raw.githubusercontent.com/Innovationg-og-ny-teknologi-2021/5_firebase-database_vejledning/main/Screenshot%202021-08-05%20at%2021.30.26.png)
     
 ## App.JS - Opret React navigation
 1. Efter din const af firebase Configarationen initaliser Firebase med 
