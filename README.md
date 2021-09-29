@@ -132,12 +132,12 @@ export default KomponentNavn;
 
 ### powermove JS funktion 2
 ```
-Object.keys(state).map((/*Parameter navn*/,index) =>{
+Object.keys(initialState).map((/*key*/,index) =>{
     return(
         <View style={styles.row} key={index}>
-            <Text style={styles.label}>/*Parameter navn*/</Text>
+            <Text style={styles.label}>/*key*/</Text>
             <TextInput
-                value={state[/*Parameter navn*/}
+                value={newCar[/*key*/}
                 onChangeText={(event) => changeSelect(/*Parameter navn*/,event)}
                 style={styles.input}
             />
