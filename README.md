@@ -19,6 +19,8 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 - Giv applikationen et vilkårligt navn og tryk "Register app".
 - Du vil nu få præsenteret en kodeblok. Kopier den del, som er omkranset af en rød boks på billedet herunder;<br/>Erstat `var` med `const`
   ![img_2](https://user-images.githubusercontent.com/55731954/128145076-eb2c1a95-643d-434b-8dc8-f43ed9e65e4d.png)
+- **VIGTIG OPDATERING** (Google har ændret i firebase 29 september ): GÅ IND UNDER real time database, og tryk create database. Tryk nu videre og vælg testmode. Gå nu til settings og gå ned i bunden og kopier det nye url. 
+<img width="1322" alt="Screenshot 2021-09-29 at 11 31 30" src="https://user-images.githubusercontent.com/48329669/135242743-a534ce5c-5348-42bf-a149-32cfa4e0591a.png">
 
 ## Opret app struktur
 1. Opret nu følgende 4 komponenter med "Hint 1 skabelonen" med nedenstående struktur. 
