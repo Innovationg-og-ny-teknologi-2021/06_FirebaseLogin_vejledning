@@ -130,19 +130,19 @@ const KomponentNavn = (props) => {
 export default KomponentNavn; 
 ```
 
-### powermove JS funktion 2
+### powermove JS funktion 2 ( husk carlsberg klammer når vi er i return )
 ```
-Object.keys(initialState).map((/*key*/,index) =>{
-    return(
-        <View style={styles.row} key={index}>
-            <Text style={styles.label}>/*key*/</Text>
-            <TextInput
-                value={newCar[/*key*/}
-                onChangeText={(event) => changeSelect(/*Parameter navn*/,event)}
-                style={styles.input}
-            />
-        </View>
-    )
+Object.keys(initialState).map((key,index) =>{
+   return(
+       <View style={styles.row} key={index}>
+           <Text style={styles.label}>{key}</Text>
+           <TextInput
+               value={newCar[key]}
+               onChangeText={(event) => changeTextInput(key,event)}
+               style={styles.input}
+           />
+       </View>
+   )
 })
 ```
 
