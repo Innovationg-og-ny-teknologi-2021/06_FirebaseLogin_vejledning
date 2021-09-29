@@ -149,18 +149,15 @@ Object.keys(initialState).map((key,index) =>{
 ### hint 3
 ```
  try {
-       firebase
-           .database()
-           .ref(`/Cars/${id}`)
-           // Vi bruger update, så kun de felter vi angiver, bliver ændret
-           .update({ brand, model, year, licensePlate });
-       // Når bilen er ændret, går vi tilbage.
-       Alert.alert("Din info er nu opdateret");
-       const car = [id,newCar]
-       navigation.navigate("Car Details",{car});
-   } catch (error) {
-       console.log(`Error: ${error.message}`);
-   }
+    firebase
+        .database()
+        .ref('/Cars/')
+        .push({ brand, model, year, licensePlate });
+    Alert.alert(`Saved`);
+    setNewCar(initialState)
+} catch (error) {
+    console.log(`Error: ${error.message}`);
+}
 ```
 
 ### hint 4
