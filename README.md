@@ -22,6 +22,9 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 - **VIGTIG OPDATERING** (Google har ændret i firebase 29 september ): GÅ IND UNDER real time database, og tryk create database. Tryk nu videre og vælg testmode. Gå nu til settings og gå ned i bunden og kopier det nye url. 
 <img width="1322" alt="Screenshot 2021-09-29 at 11 31 30" src="https://user-images.githubusercontent.com/48329669/135242743-a534ce5c-5348-42bf-a149-32cfa4e0591a.png">
 
+- PS, hvis det ikke ligner billedet øverst, så gå ind und realTime database og kopier database url'et og lig det ind i jeres config: 
+ databaseURL: "https://fir-advanced-99de4-default-rtdb.firebaseio.com" <---- skal udskiftes med jeres egen url
+
 ## Opret app struktur
 1. Opret nu følgende 4 komponenter med "Hint 1 skabelonen" med nedenstående struktur. 
    1. Husk at importere de nødvendige komponenter fra node modules, som React og Text fra rect native
