@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 
 - Giv applikationen et vilkårligt navn og tryk "Register app".
 
-- Gå ind under real time database, og tryk create database. Tryk nu videre og vælg testmode. Gå nu til settings og gå ned i bunden og kopier kodestykket nedenfor
+- Gå ind under real time database, og tryk create database. Tryk nu videre og vælg testmode. Gå nu til settings og gå ned i bunden og kopier firebaseConfig-kodestykket nedenfor
 <img width="1322" alt="Screenshot 2021-09-29 at 11 31 30" src="https://user-images.githubusercontent.com/48329669/135242743-a534ce5c-5348-42bf-a149-32cfa4e0591a.png">
 
 - Indsæt dette i app.js, som ved sidste øvelse
