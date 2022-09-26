@@ -17,8 +17,9 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
   ![img_1](https://user-images.githubusercontent.com/55731954/128145049-ee6b0029-1372-45d6-b6ec-0fefaf49e18b.png)
 
 - Giv applikationen et vilkårligt navn og tryk "Register app".
-- Du vil nu få præsenteret en kodeblok. Kopier den del, som er omkranset af en rød boks på billedet herunder;<br/>Erstat `var` med `const`
-  ![img_2](https://user-images.githubusercontent.com/55731954/128145076-eb2c1a95-643d-434b-8dc8-f43ed9e65e4d.png)
+- Du vil nu få præsenteret en kodeblok. Kopier den del, som er omkranset af en rød boks på billedet herunder;
+<img width="592" alt="Skærmbillede 2022-09-26 kl  10 59 28" src="https://user-images.githubusercontent.com/111279752/192236403-c0c963f8-4905-4299-afe4-d564518fefd0.png">
+
 - **VIGTIG OPDATERING** (Google har ændret i firebase 29 september ): GÅ IND UNDER real time database, og tryk create database. Tryk nu videre og vælg testmode. Gå nu til settings og gå ned i bunden og kopier det nye url. 
 <img width="1322" alt="Screenshot 2021-09-29 at 11 31 30" src="https://user-images.githubusercontent.com/48329669/135242743-a534ce5c-5348-42bf-a149-32cfa4e0591a.png">
 
