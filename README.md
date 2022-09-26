@@ -91,39 +91,39 @@ Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-
 
 
 ### CarList
-1. Start med at sætte I parameter parantesen indsæt nu `{navigation}` i props ved Carlist
+1. Indsæt {navigation} i parameter parentesen i stedet for props, så vi henter fra react navigations parametre som skal sendes videre fra forskellige Screens
 2. Opret en state for `cars, setCars` med useState
-3. Lav nu en useEffect funktion (se referncer hvis du har no clue, hvordan det fungere) hvori der laves en !cars, så kør hint 4
+3. Lav nu en useEffect funktion, hvori der laves en if(!cars) (se hint 4)
    1. Husk at useEffect kun skal køres en gang med et tomt array til sidst
-4. Efter useEffect lav nu et if statement som kontrollere om der ikke er nogle biler og returner `<Text>Loadding...</Text> `
-5. Lav nu en funktion kaldt `const handleSelectCar = id => {}`, som søger direkte i vores array af biler og finder bil objektet som matcher idet vi har tilsendt og ligger det ned i vores parametre i navigation ( hint 5)
+4. Efter useEffect laves et if statement som kontrollerer, om der ikke er nogle biler og returner `<Text>Loadding...</Text> `
+5. Lav nu en funktion kaldet `const handleSelectCar = id => {}`, som søger direkte i vores array af biler og finder bilobjektet, som matcher idet vi har tilsendt og ligger det ned i vores parametre i navigation (hint 5)
 6. Over return funktionen her skal vi have to const variabler carArray med værdier (Object.values()), og carKeys med Obejct.keys()` const carArray = Object.values(cars); const carKeys = Object.keys(cars);`
-7. I Return funktionen vil vi lave en `<FlatList/>`, i FlatListen komponenten lav følgende tre attributter
-   1. data som tager et med carArray
+7. I Return funktionen vil vi lave en `<FlatList/>`, hvori der skal laves følgende tre attributter
+   1. data={carArray}
    2. keyExtractor med en funktion med parametrene item, index som sættes med carKeys[index] (``keyExtractor={(item, index) => carKeys[index]}``)
-   3. renderItem med følgende return funktion: ``({item,index}) => { return() } ``. I return funktion skal vi have et forældre `TouchableOpacity` med en onpress funktion: `handleSelectCar(carKeys[index])`
-      1. lav en Text element med `{item.brand}`
-9. Nu skulle du gerne kunne trykke på bil modellen du har oprettet i tidligere step og går til car details
+   3. renderItem med følgende return funktion: ``({item,index}) => { return() } ``. I return funktionen skal vi have et parent `TouchableOpacity` med en onpress funktion: `handleSelectCar(carKeys[index])`
+      1. lav et Text element med `{item.brand}`
+9. Nu skulle du gerne kunne trykke på bil-modellen, du har oprettet i tidligere step og gå til car details
 
 ### CarDetails
-1. Start med at sætte I parameter parantesen indsæt nu {navigation,route} i props ved CarDetails
+1. Start med at indsætte {navigation,route} i stedet for props ved CarDetails
 2. Opret en state for cars med useState
-3. Sæt nu en useEffect op, og Hent car values og sætter dem med setCar(route.params.car[1]), og når vi forlader screen, tøm object. Husk, at du ikke skal have tomt array i dependecies []
-4. Opret nu en funktion kaldt handle edit, som henter car objektet  fra ``route.params.car``, og sætter det i navigation lige vi har gjort tidligere, men blot med et andet navn som skal være vores edit screen ( string)
+3. Lav nu en useEffect, og hent car values og sæt dem med setCar(route.params.car[1]). Når vi forlader screenen, skal objektet tømmes: `return () => { setCar({}) }`
+4. Opret nu en funktion kaldet handleEdit, som henter car objektet fra ``route.params.car``, og sæt det i navigation, så vi navigerer til 'Edit Car' - hint: kig tilbage i navigationsøvelsen
 5. Lav nu en confirmDelete funktion hvor du laver en Alert.alert med inspiration fra hint 6
-6. Lav nu en handleDelete funktion, som først henter id fra route med ``route.params.car[0]`` og lav en try catch, hvor i try'en kaldes en næsten den samme firebase funktion som du har henter "cars" med tidligere, men tilsidst remove() og i ref'en ændres `/Cars/${id}`. I catchen set i parametren error og inde i catchen lav en Alert med error.message
-7. inden return funktione lav nu en lignende if statemtent hvis der ikke er en car, returner Text element med vilkårlig tekst
-8. I return funktionen lav to knapper som kalder på hhv handleEdit(), og confirmDelete()
-9. Prøv at forstå hint 7, og indsæt efter knapper
-10. Nu burde du se alle din bils informationer og kunne slette din bil. Og du burde kunne gå til edit/add screene
+6. Lav nu en handleDelete funktion, som først henter id fra route med ``route.params.car[0]`` og lav en try catch, hvor i try'en kaldes næsten den samme firebase funktion som du har hentet "cars" med tidligere, men til sidst tilføj `.remove()` og i ref'en ændres `/Cars/${id}`. I catchen, skal parametren tage `error`som argument og inde i catchen laves en Alert med error.message
+7. Nedenfor laves nu et lignende if statemtent: hvis der ikke er en car, skal vi returnere et text element med vilkårlig tekst
+8. I return funktionen laves to knapper, som kalder på hhv handleEdit(), og confirmDelete()
+9. Prøv at forstå hint 7, og indsæt derefter knapper
+10. Nu burde du se alle bilens informationer og kunne slette din bil. Og du burde kunne gå til edit/add screen
 
 
 ### Add_edit_Car | step 2
-1.Nu vil vi gerne have at når vi kommer fra CarDetails, så tager den vores bil med og indsætterne værdierne i felterne
+1.Nu vil vi gerne have, at når vi kommer fra CarDetails, så tager den vores bil med og indsætter værdierne i felterne
 2. Opret nu en useEffect med en funktion
    1. Her i denne funktion skal der først oprettes et if statement, med isEditCar
-   2. I if funktion, så skal du hente din bils objekt fra paramentrene `route.params.car[1]` og setNewCar(car)
-   3. Dernæst lav en return med en funktion, som siger setNewCar(initalState)
+   2. I if funktionen, så skal du hente din bils objekt fra paramentrene `route.params.car[1]` og setNewCar(car)
+   3. Dernæst lav en return med en funktion, som siger setNewCar(initalState)for at fjerne data, når vi går væk fra screenen
    4. Husk et tomt array til sidst i useEffecten
 3. Dernæst i handleSave lav et if else statement
    1. i if'en brug isEditCar, og deri lav en try catch som tager udgangspunkt i følgende https://firebase.google.com/docs/database/web/read-and-write 
