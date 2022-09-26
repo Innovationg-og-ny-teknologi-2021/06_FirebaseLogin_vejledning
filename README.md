@@ -30,7 +30,15 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
    1. Husk at importere de nødvendige komponenter fra node modules, som React og Text fra rect native
    2. Husk også at komponentnavn skal være ens med filnavnet
    3. ![img3](https://raw.githubusercontent.com/Innovationg-og-ny-teknologi-2021/5_firebase-database_vejledning/main/Screenshot%202021-08-05%20at%2021.30.26.png)
-    
+
+## metro.config.js og Firebase v.9
+Da firebase blev opdateret her i slut August 2022, er der stadig en masse bugs som skaber problemer. Et af dem er følgende
+`ERROR MESSAGE: "While trying to resolve module 'idb'..... Indeed none of these files exist":`
+
+Denne fejl vil i modtage når i forsøger at compile jeres applikation på jeres mobil. 
+
+Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-native-bundling-failure-error-message-while-trying-to-resolve-module-i
+
 ## App.JS - Opret React navigation
 1. Efter din const af firebase Configarationen initaliser Firebase med 
    1. ``` 
