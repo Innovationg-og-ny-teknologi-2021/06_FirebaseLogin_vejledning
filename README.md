@@ -51,16 +51,16 @@ Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-
 3. Lav derefter en funktion kaldet StackNavigation, som skal returnere 3 Screens med "name" samt komponentnavnene CarList, CarDetails og Add_edit_car
    1. Det er vigtigt at CarList placeres øverst ;)
 4. Oppe ved `const Stack = createStackNavigator()`, Initialiser deraf en Bottom navigatorer med `const Tab = createBottomTabNavigator();`
-5. Gå nu ned til return og ligesom i de sidste navigation øvelser opret en ``<NavigationContainer></NavigationContainer>``, som skal wrappe din Tab.navigator --> Se https://reactnavigation.org/docs/bottom-tab-navigator/ 
-6. I Tab.Navigator wrapper opret nu Tab.Screen med et name kaldt home, som tager StackNavigation med som komponent, og lav nu derefter en Tab.Screen med komponenten Add_edit_Car
-7. Fjern nu HeaderShown og tilføj et ikon til Home Tab.Screen | Eksempel ( husk at Ionicons skal importeres)
+5. Gå nu til return, og ligesom i de sidste navigation øvelser, så opret en ``<NavigationContainer></NavigationContainer>``, som skal wrappe din Tab.navigator --> Se https://reactnavigation.org/docs/bottom-tab-navigator/ 
+6. I Tab.Navigator wrapper oprettes to Tab.Screen med name og component, som henholdvis skal være StackNavigation og Add_edit_Car
+7. Tilføj et ikon til Home Tab.Screen | Eksempel ( husk at Ionicons skal importeres)
 ``<Tab.Screen name={'Home'} component={StackNavigation} options={{tabBarIcon: () => ( <Ionicons name="home" size={20} />),headerShown:null}}/>``
-8. Tilføj nu også et ikon til "Add" Screenen hvor ikon navnet ``add`` istedet for home
-9. Nu burde du kunne tabe imellem add og stacknavigatoren "Carlist"
+8. Tilføj nu også et ikon til "Add" Screenen, hvor ikon navnet er ``add`` istedet for home
+9. Nu burde du kunne trykke imellem add og stacknavigatoren "Carlist"
 10. Tips: Hvis du får fejl, så læs hvad react native brokker sig over, og kopier det ind i Google og brug stackOverFlow
 
 ## Add_edit_car komponent 
-1. I parameter parantesen indsæt nu `{navigation,route}`, så vi kan henter fra react navigations parametre som skal sendes videre fra forskellige Screens
+1. I parameter parantesen indsæt nu `{navigation,route}` i stedet for `props`, så vi  henter fra react navigations parametre som skal sendes videre fra forskellige Screens
 2. Lav øverst en initialState object med tilhørende string attributter: brand,model,year og licensplate
    1. ``const initialState = {
       brand: '',
@@ -68,8 +68,8 @@ Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-
       year: '',
       licensePlate: ''
       }``
-3. **States** |Lav en ny State kaldt `[newCar,setNewCar]`, hvor du i useState bruger `initialState`
-4. Lav derunder en const funktion kaldt isEditCar, hvor du sætter et ligmed mellem isEdit car og --> `route.name === "Edit car"` eller hvad du nu har kaldt dette screen name i stacknavigatoren i app.js
+3. **States** |Lav nedenunder en ny State kaldet `[newCar,setNewCar]`, hvor du i useState bruger `initialState`
+4. Lav derunder en const funktion kaldet isEditCar: `const isEditCar = route.name === "Edit car"` eller hvad du nu har kaldt dette screen name i stacknavigatoren i app.js
    1. ( bruges til senere )
 5. Opret nu en changeTextInput funktion
    ``` 
@@ -77,7 +77,7 @@ Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-
         setNewCar({...newCar, [name]: event});
    }
    ```
-6. **Content |** Gå nu til return og lav først en SafeAreaView som forældre, og deri lig en ScrollView
+6. **Content |** Gå return og lav et SafeAreaView som parent, og deri et ScrollView
    1. Nu laver vi et über powermove med JS, hvor vi i vores return funktion skal returnere en række felter som vi skal kunne indtaste og ændre værdier i
       1. Start med i ScrollView'et at åbne eksikveringen af JS med {}, og deri lav et Object keys funktion af newCar, som har en funktion med parametrene for attributterne model osv og index. 
       2.  Se eventuelt nede i hints  `powermove JS funktion 2`
