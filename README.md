@@ -21,33 +21,35 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 - Gå ind under real time database, og tryk create database. Tryk nu videre og vælg testmode. Gå nu til settings og gå ned i bunden og kopier firebaseConfig-kodestykket nedenfor
 <img width="708" alt="Skærmbillede 2022-09-26 kl  11 31 44" src="https://user-images.githubusercontent.com/111279752/192243274-8a1c87ae-3417-4221-8a48-20327db70874.png">
 
-
 - Indsæt dette i app.js, som ved sidste øvelse
 
 ## Opret app struktur
-1. Opret nu følgende 4 komponenter med "Hint 1 skabelonen" med nedenstående struktur. 
-   1. Husk at importere de nødvendige komponenter fra node modules, som React og Text fra rect native
-   2. Husk også at komponentnavn skal være ens med filnavnet
-   3. ![img3](https://raw.githubusercontent.com/Innovationg-og-ny-teknologi-2021/5_firebase-database_vejledning/main/Screenshot%202021-08-05%20at%2021.30.26.png)
+1. Opret nu følgende 3 komponenter og brug skabelon 1 i alle tre
+   - Add_edit_Car.js 
+   - CarDetails.js
+   - CarList.js
+2. Husk at importere de nødvendige komponenter fra node modules, som React og Text fra react native, præcis som i plejer i         alle filer
+3. Husk også at komponentnavnet skal være ens med filnavnet
+
 
 ## metro.config.js og Firebase v.9
 Da firebase blev opdateret her i slut August 2022, er der stadig en masse bugs som skaber problemer. Et af dem er følgende
 `ERROR MESSAGE: "While trying to resolve module 'idb'..... Indeed none of these files exist":`
 
-Denne fejl vil i modtage når i forsøger at compile jeres applikation på jeres mobil. 
+Denne fejl vil i muligvis få, når i forsøger at compile jeres applikation på jeres mobil. 
 
 Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-native-bundling-failure-error-message-while-trying-to-resolve-module-i
 
 ## App.JS - Opret React navigation
-1. Efter din const af firebase Configarationen initaliser Firebase med 
+1. Efter din const af firebase Configarationen, skal Firebase initialiseres:
    1. ``` 
       if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
       }
     ```
-2. Initialiser derefter Stack navigatoren med `const Stack = createStackNavigator();`
-3. Lav derefter en funktion kaldet StackNavigation som returnere 3 Screens med "name" samt komponentnavnene CarList, CarDetails og Add_edit_car --> reference Stack navigator ( nede i bunden )
-   1. Det er vigtigt at CarList ligger øverst ;)
+2. Initialiser Stack navigatoren med `const Stack = createStackNavigator();`
+3. Lav derefter en funktion kaldet StackNavigation, som skal returnere 3 Screens med "name" samt komponentnavnene CarList, CarDetails og Add_edit_car
+   1. Det er vigtigt at CarList placeres øverst ;)
 4. Oppe ved `const Stack = createStackNavigator()`, Initialiser deraf en Bottom navigatorer med `const Tab = createBottomTabNavigator();`
 5. Gå nu ned til return og ligesom i de sidste navigation øvelser opret en ``<NavigationContainer></NavigationContainer>``, som skal wrappe din Tab.navigator --> Se https://reactnavigation.org/docs/bottom-tab-navigator/ 
 6. I Tab.Navigator wrapper opret nu Tab.Screen med et name kaldt home, som tager StackNavigation med som komponent, og lav nu derefter en Tab.Screen med komponenten Add_edit_Car
@@ -131,7 +133,7 @@ Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-
 
 
 ## Hints 
-### skabalon 1
+### Skabelon 1
 ``` 
 const KomponentNavn = (props) => { 
     return (
