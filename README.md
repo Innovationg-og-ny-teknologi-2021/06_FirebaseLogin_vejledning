@@ -6,7 +6,7 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 ## Integration med Firebase
 1. Start med at oprette et nyt projekt.
 2. Installér følgende dependencies med `npx expo install eller npm install`;
-   1. `npx expo install react-native-gesture-handler @react-native-community/masked-view react-native-reanimated react-native-safe-area-context react-native-screens @react-navigation/native @react-navigation/bottom-tabs @react-navigation/stack react-native-vector-icons firebase`
+   1. `npx expo install @react-navigation/native @react-navigation/bottom-tabs @react-navigation/stack react-native-vector-icons firebase`
 3.  Opret nu en authentication-database i Firebase;
 - Følg dette link: https://firebase.google.com/
 - Tryk på "Get Started"
