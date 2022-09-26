@@ -77,12 +77,12 @@ Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-
         setNewCar({...newCar, [name]: event});
    }
    ```
-6. **Content |** Gå return og lav et SafeAreaView som parent, og deri et ScrollView
+6. **Content |** Gå til return og lav et SafeAreaView som parent, og deri et ScrollView
    1. Nu laver vi et über powermove med JS, hvor vi i vores return funktion skal returnere en række felter som vi skal kunne indtaste og ændre værdier i
-      1. Start med i ScrollView'et at åbne eksikveringen af JS med {}, og deri lav et Object keys funktion af newCar, som har en funktion med parametrene for attributterne model osv og index. 
-      2.  Se eventuelt nede i hints  `powermove JS funktion 2`
-      3. Opret et return og Opret først et `View` med styling, deri et `Text` komponent som deri tager attributterne navnet 
-      4. Derefter opret et `TextInput` som i value'en har en newCar[parameternavnet] og lav en attribute med on funktion som taget event og et kald changeSelect funktion som taget newCar parameter navn og event med som parameter
+      1. Start med i ScrollView'et at åbne eksekveringen af JS med {}, og deri lav et Object keys funktion af newCar, som har en funktion med parametrene for attributterne model osv og index. 
+      2. Se eventuelt nede i hints  `powermove JS funktion 2`
+      3. Opret et return og opret først et `View` med styling, deri et `Text` komponent som deri tager attributterne navnet 
+      4. Derefter opret et `TextInput` med value, onChangeText og style. Value skal være lig newCar[parameternavnet] og onChangeText skal tage event og kalde en changeSelect-funktion, som tager newCar parameter navn og event med som parameter - Igen: se hint 2
    2. lav nu en button som har en save changes funktion kaldt handlesave(), og giv en titel Add car
 7. **HandleSave** | Lav en handleSave funktion, som først henter newCar objektets keys brand, model, year `const {brand,model .... etc } = newCar;`
    1. Opret et if, som kigger på om brand og de andre attributter har en længde på 0 for at tjekke for tomme felter fx `brand.length === 0` , og return en `Alert.alert()` med en besked
@@ -144,7 +144,7 @@ const KomponentNavn = (props) => {
 export default KomponentNavn; 
 ```
 
-### powermove JS funktion 2 ( husk carlsberg klammer når vi er i return )
+### powermove JS funktion 2 ( husk turborgklammer når vi er i return )
 ```
 Object.keys(initialState).map((key,index) =>{
    return(
