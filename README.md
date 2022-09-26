@@ -83,11 +83,11 @@ Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-
       2. Se eventuelt nede i hints  `powermove JS funktion 2`
       3. Opret et return og opret først et `View` med styling, deri et `Text` komponent som deri tager attributterne navnet 
       4. Derefter opret et `TextInput` med value, onChangeText og style. Value skal være lig newCar[parameternavnet] og onChangeText skal tage event og kalde en changeSelect-funktion, som tager newCar parameter navn og event med som parameter - Igen: se hint 2
-   2. lav nu en button som har en save changes funktion kaldt handlesave(), og giv en titel Add car
+   2. lav nu en button som har en save changes funktion kaldet handlesave(), og giv en title `Add car`
 7. **HandleSave** | Lav en handleSave funktion, som først henter newCar objektets keys brand, model, year `const {brand,model .... etc } = newCar;`
    1. Opret et if, som kigger på om brand og de andre attributter har en længde på 0 for at tjekke for tomme felter fx `brand.length === 0` , og return en `Alert.alert()` med en besked
    2. Kopier koden fra hints 3 og placer den nedenunder. Prøv at forstå hvad der sker i funktionen 
-8. Nå du trykke på button i din app burde du nu få en alert med at du har saved. Og derefter gå nu ind i på firebase (console.firebase.com) om din bil er blevet oprettet
+8. Nå du trykker på button i din app burde du nu få en alert med, at du har saved. Gå nu ind i firebase (console.firebase.com) for at se, om din bil er blevet oprettet
 
 
 ### CarList
