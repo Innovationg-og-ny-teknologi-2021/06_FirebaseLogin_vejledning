@@ -93,7 +93,7 @@ Læs om løsning hertil her: https://stackoverflow.com/questions/72179070/react-
 ### CarList
 1. Indsæt {navigation} i parameter parentesen i stedet for props, så vi henter fra react navigations parametre som skal sendes videre fra forskellige Screens
 2. Opret en state for `cars, setCars` med useState
-3. Lav nu en useEffect funktion, hvori der laves en if(!cars) (se hint 4)
+3. Lav nu en useEffect funktion, hvori der laves en if(!cars) og derefter indsætter kode fra hint 4
    1. Husk at useEffect kun skal køres en gang med et tomt array til sidst
 4. Efter useEffect laves et if statement som kontrollerer, om der ikke er nogle biler og returner `<Text>Loadding...</Text> `
 5. Lav nu en funktion kaldet `const handleSelectCar = id => {}`, som søger direkte i vores array af biler og finder bilobjektet, som matcher idet vi har tilsendt og ligger det ned i vores parametre i navigation (hint 5)
