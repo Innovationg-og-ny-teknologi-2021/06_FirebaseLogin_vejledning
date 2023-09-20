@@ -45,9 +45,11 @@ Hvis i modtager den fejl så læs om løsning hertil her: https://stackoverflow.
    2. Hint: ```import { getApps, initializeApp } from "firebase/app"; ```
 2. Efter din const af firebase Configarationen, skal Firebase initialiseres:
    1. ``` 
-      if (!firebase.apps.length) {
-      firebase.initializeApp(firebaseConfig);
-      }
+      if (getApps().length < 1) {
+       initializeApp(firebaseConfig);
+       console.log("Firebase On!");
+       // Initialize other firebase products here
+        }
     ```
 3. Initialiser Stack navigatoren med `const Stack = createStackNavigator();`
 4. Lav derefter en funktion kaldet StackNavigation, som skal returnere 3 Screens med "name" samt komponentnavnene CarList, CarDetails og Add_edit_car
