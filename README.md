@@ -30,7 +30,19 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
    1. Husk at importere de nødvendige komponenter fra node modules, som React og Text fra rect native
    2. Husk også at komponentnavn skal være ens med filnavnet
    3. ![img3](https://raw.githubusercontent.com/Innovationg-og-ny-teknologi-2021/5_firebase-database_vejledning/main/Screenshot%202021-08-05%20at%2021.30.26.png)
-    
+
+## Opret metro.config.js
+1. Opret en .js fil som i kalder ``metro.config.js``
+2. Filen gemmer i samme sted som jeres ``app.js``
+3. Denne fil løser i nogle tilfælde et problem med firebase og expo når de skal kommunikere med håndanden.
+4. Filen skal indeholde følgende:
+   1. ```
+      const { getDefaultConfig } = require("@expo/metro-config");
+      const defaultConfig = getDefaultConfig(__dirname);
+      defaultConfig.resolver.assetExts.push("cjs");
+      module.exports = defaultConfig;
+       ```
+
 ## App.JS - Opret React navigation
 1. Efter din const af firebase Configarationen initaliser Firebase med 
    1. ``` 
@@ -122,6 +134,9 @@ https://user-images.githubusercontent.com/48329669/128408720-8449ae85-8722-4f91-
 4. Gå nu ned i titlen på button nederst og sæt et isEditCar ? "Save changes" : "Add car" i titlen
 5. done
 
+### Done
+Hvis alt virker som det skal, så vil i kunne tilgå jeres database på Firebase og se realtime hvad i har pushed og jeres database struktur.
+<img src="./Screenshot 2022-08-23 103707.png"/>
 
 ## Hints 
 ### skabalon 1
